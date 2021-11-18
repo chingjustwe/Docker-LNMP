@@ -1,0 +1,57 @@
+version: "3"
+services:
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        networks:
+            - lnmp
+        depends_on:
+            - php
+        ports:
+            - "80:80"
+            - "443:443"
+        expose:
+            - "80"
+            - "443"
+        volumes:
+            - /opt/docker/nginx/html:/usr/share/nginx/html # web root folder
+            - /opt/docker/nginx/conf/:/etc/nginx/conf.d # configuration folder
+            - /opt/docker/nginx/log:/var/log/nginx # log folder
+            - /opt/docker/nginx/cert:/etc/nginx/cert # ssl folder
+        links:
+            - php
+    php:
+        # image: php:7-fpm
+        build: # there are lots modules to setup, use dockerfile instead of single image
+            context: ./php
+            dockerfile: Dockerfile
+        container_name: php
+        volumes:
+            - /opt/docker/nginx/html:/usr/share/nginx/html # web root folder
+            - /opt/docker/php/conf/:/usr/local/etc/php/conf.d # configuration folder
+        networks:
+            - lnmp
+        depends_on:
+            - mysql
+        expose:
+            - "9000"
+    mysql:
+        image: mysql:5.7
+        container_name: mysql
+        volumes:
+            - /opt/docker/mysql/conf/:/etc/mysql/conf.d # configuration folder
+            - /opt/docker/mysql/data:/var/lib/mysql # data folder
+        environment:
+            MYSQL_ROOT_PASSWORD: password # change to any password you like
+            MYSQL_USER: nightfield # change to any user you like
+            MYSQL_PASSWORD: password # change to any password you like
+        networks:
+            - lnmp
+        expose:
+            - "3306"
+        ports:
+            - "3306:3306"
+
+networks:
+    lnmp:
+    
