@@ -28,7 +28,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 now you are ready to bring up a container using `docker-compose`, before that, some configurations need to be changed:
 
 ### MYSQL configuration
-in file [docker-compose.yml](./docker-componse.yml), set the MYSQL user name and password:
+in file [docker-compose.yml](./docker-compose.yml), set the MYSQL user name and password:
 > services.mysql.environment.MYSQL_ROOT_PASSWORD: &lt;set your root password&gt;
 > services.mysql.environment.MYSQL_USER: &lt;set your user name&gt;
 > services.mysql.environment.MYSQL_PASSWORD: &lt;set your password for above user&gt;
