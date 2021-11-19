@@ -29,9 +29,9 @@ now you are ready to bring up a container using `docker-compose`, before that, s
 
 ### MYSQL configuration
 in file [docker-compose.yml](./docker-compose.yml), set the MYSQL user name and password:
-> services.mysql.environment.MYSQL_ROOT_PASSWORD: &lt;set your root password&gt;
-> services.mysql.environment.MYSQL_USER: &lt;set your user name&gt;
-> services.mysql.environment.MYSQL_PASSWORD: &lt;set your password for above user&gt;
+> services.mysql.environment.MYSQL_ROOT_PASSWORD: &lt;set your root password&gt;  
+> services.mysql.environment.MYSQL_USER: &lt;set your user name&gt;  
+> services.mysql.environment.MYSQL_PASSWORD: &lt;set your password for above user&gt;  
 
 if you have additional customized MYSQL env configurations, just put it in [my.cnf](./mysql/conf/my.cnf).
 
