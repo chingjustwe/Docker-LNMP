@@ -35,6 +35,7 @@
                     	<p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a></p>
 						<p>Powered by <a href="http://www.typecho.org" target="_blank" rel="nofollow">Typecho</a></p>
 						<p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></p>
+                                                <p><a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备19051445号</a></p>
 					</div>
 				</div>
 			</div>
