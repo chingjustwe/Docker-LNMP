@@ -57,3 +57,6 @@ you are all set!!
 
 # Extra
 there is a sample [Typecho](https://typecho.org/) template under [Web Root](./nginx/html), if you are a **Typecho** user, you can continue to setup your personal website right now through `${hostname}/index.php`!
+
+Check [here](./nginx/cert/README.md) for steps to install a free certificate through [Let's Encrypt](https://letsencrypt.org/getting-started/).
+
