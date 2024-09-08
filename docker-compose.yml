@@ -18,6 +18,8 @@ services:
             - /opt/docker/nginx/conf/:/etc/nginx/conf.d # configuration folder
             - /opt/docker/nginx/log:/var/log/nginx # log folder
             - /opt/docker/nginx/cert:/etc/nginx/cert # ssl folder
+            - /etc/letsencrypt/live/nightfield.com.cn/fullchain.pem:/etc/nginx/ssl/fullchain.pem # let's encrypt ssl folder
+            - /etc/letsencrypt/live/nightfield.com.cn/privkey.pem:/etc/nginx/ssl/privkey.pem # let's encrypt ssl folder
         links:
             - php
     php:
@@ -42,9 +44,9 @@ services:
             - /opt/docker/mysql/conf/:/etc/mysql/conf.d # configuration folder
             - /opt/docker/mysql/data:/var/lib/mysql # data folder
         environment:
-            MYSQL_ROOT_PASSWORD: password # change to any password you like
-            MYSQL_USER: nightfield # change to any user you like
-            MYSQL_PASSWORD: password # change to any password you like
+            MYSQL_ROOT_PASSWORD: 19910902# change to any password you like
+            MYSQL_USER: zhochi # change to any user you like
+            MYSQL_PASSWORD: 19910902 # change to any password you like
         networks:
             - lnmp
         expose:
